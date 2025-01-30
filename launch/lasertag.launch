@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Include other launch files -->
+    <include file="$(find tams_turtlebot_bringup)/launch/tams_turtlebot.launch"/>
+
+    <include file="$(find tams_turtlebot_navigation)/launch/navigation.launch">
+        <arg name="map" value="$(find turtlebot-lasertag)/map/map.yaml"/>
+    </include>
+
+    <include file="$(find rpc_game_client)/launch/game_client.launch"/>
+
+    <include file="$(find apriltag_ros)/launch/continuous_detection.launch">
+        <arg name="camera_name" value="/camera/rgb"/>
+        <arg name="image_topic" value="image_rect_mono"/>
+    </include>
+</launch>
+
